@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://dcassetcdn.com/design_img/10150/25224/25224_294121_10150_image.jpg" type="image/x-icon">
+    <title>Recipe List</title>
+</head>
+<body>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            background: white;
+        }
+
+        /* Header styling */
+        header {
+            background: linear-gradient(0deg, rgba(34,17,223,1) 0%, rgba(0,0,0,1) 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 2rem;
+        }
+
+        /* Recipe list container */
+        .recipe-list {
+            margin: 20px;
+        }
+
+        /* Set up the grid for the recipe list */
+        .recipe-list ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Recipe list items */
+        .recipe-list li {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .recipe-list li:hover {
+            transform: scale(1.02);
+        }
+
+        /* Recipe list images */
+        .recipe-list img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        #addbtn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        #addbtn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        /* Recipe list links */
+        .recipe-list a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #ff6347;
+        }
+
+        /* Recipe list descriptions */
+        .recipe-list p {
+            margin-top: 5px;
+            font-size: 1rem;
+            color: #333;
+        }
+        #addbtn {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+
+        #addbtn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            header {
+                font-size: 1.5rem;
+                padding: 15px;
+            }
+
+            .recipe-list {
+                margin: 10px;
+            }
+
+            .recipe-list li {
+                padding: 10px;
+            }
+
+            .recipe-list a {
+                font-size: 1.2rem;
+            }
+
+            .recipe-list p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                font-size: 1.2rem;
+                padding: 10px;
+            }
+
+            .recipe-list {
+                margin: 5px;
+            }
+
+            .recipe-list li {
+                padding: 8px;
+            }
+
+            .recipe-list a {
+                font-size: 1rem;
+            }
+
+            .recipe-list p {
+                font-size: 0.8rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+    <header>
+        <h1>Snacks Recipes List</h1>
+    </header>
+    
+    <main>
+        <section class="recipe-list">
+            <ul>
+                <li>
+                    <img src="https://www.simplyrecipes.com/thmb/kFG0KjF0DYtVCSlkFivDSrUBpkg=/1600x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__12__Vegetable-Samosas-LEAD-1-65199bf0727346c8871b4b3d362da391.jpg" alt="Vegetable Samosa - a crispy, fried snack filled with spiced potatoes and peas">
+                    <a class="page-title" data-title="Vegetable Samosa"href="/recipes">Vegetable Samosa</a>
+                    <p>This vegetable samosa recipe is a classic Indian snack.</p>
+                </li>
+                <li>
+                    <img src="https://womenshine.in/wp-content/uploads/2021/03/images-78.jpeg" alt="Cheese Nuggets - a crispy snack made with cheese and spices">
+                    <a class="page-title" data-title="Cheese Nuggets"href="/recipes">Cheese Nuggets</a>
+                    <p>They make the perfect spicy sharing starter</p>
+                </li>
+                <li>
+                    <img src="http://www.oliviascuisine.com/wp-content/uploads/2016/08/classic-pizza-margherita-1.jpg" alt="Margherita Pizza - a classic pizza topped with fresh mozzarella and basil">
+                    <a class="page-title" data-title="Margherita Pizza"href="/recipes">Margherita Pizza</a>
+                    <p>Pizza with perfectly melty mozzarella cheese and fresh basil.</p>
+                </li>
+                <li>
+                    <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2022/07/aloo-tikki-recipe-2-580x580.jpg" alt="Aloo Tikki - spiced potato patties">
+                    <a class="page-title" data-title="Aloo Tikki"href="/recipes">Aloo Tikki</a>
+                    <p>Learn how to make crispy and fluffy aloo tikki.</p>
+                </li>
+                <li>
+                    <img src="https://i.pinimg.com/originals/92/d7/9b/92d79bdebda57262fd803118aa873d2d.jpg" alt="Vegetable Spring Rolls - flaky rolls filled with fresh vegetables">
+                    <a class="page-title" data-title="Vegetable Spring Rolls" href="/recipes">Vegetable Spring Rolls</a>
+                    <p>Stuffed with fresh vegetables and Noodles.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <button id="addbtn" onclick="location.href='/addrecipes'" style="padding: 10px; font-size: 16px;">Add Recipes</button>
+    <footer>
+        <p>&copy; 2024 Delicious Recipes. All rights reserved.</p>
+    </footer>
+    <script>
+        // Step 2: JavaScript to handle clicks
+    document.querySelectorAll('.page-title').forEach(function(anchor) {
+        anchor.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor click behavior
+            const title = this.getAttribute('data-title'); // Fetch the title
+            const targetUrl = '/recipes?title=' + encodeURIComponent(title); // Construct the target URL
+            window.location.href = targetUrl; // Redirect to the new page
+        });
+    });
+    </script>
+</body>
+</html>

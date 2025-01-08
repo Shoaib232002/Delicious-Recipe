@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://dcassetcdn.com/design_img/10150/25224/25224_294121_10150_image.jpg" type="image/x-icon">
+    <title>Recipe List</title>
+</head>
+<body>
+    <style>
+       /* General body styling */
+       body {
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           margin: 0;
+           padding: 0;
+           background-color: #f8f8f8;
+           background: white;
+       }
+
+       /* Header styling */
+       header {
+           background: linear-gradient(0deg, rgba(17,223,58,1) 0%, rgba(0,0,0,1) 100%);
+           color: white;
+           text-align: center;
+           padding: 20px;
+           font-size: 2rem;
+       }
+
+       /* Recipe list container */
+       .recipe-list {
+           margin: 20px;
+       }
+       #addbtn {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+
+        #addbtn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+       /* Set up the grid for the recipe list */
+       .recipe-list ul {
+           display: grid;
+           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+           gap: 20px;
+           list-style-type: none;
+           padding: 0;
+       }
+
+       /* Recipe list items */
+       .recipe-list li {
+           background-color: #fff;
+           padding: 15px;
+           border-radius: 8px;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           transition: transform 0.2s ease;
+       }
+
+       .recipe-list li:hover {
+           transform: scale(1.02);
+       }
+
+       /* Recipe list images */
+       .recipe-list img {
+           width: 200px;
+           height: 200px;
+           object-fit: cover;
+           border-radius: 8px;
+           margin-bottom: 10px;
+       }
+
+       /* Recipe list links */
+       .recipe-list a {
+           text-decoration: none;
+           font-size: 1.5rem;
+           color: #ff6347;
+       }
+
+       /* Recipe list descriptions */
+       .recipe-list p {
+           margin-top: 5px;
+           font-size: 1rem;
+           color: #333;
+       }
+
+       /* Footer styling */
+       footer {
+           background-color: #333;
+           color: white;
+           text-align: center;
+           padding: 10px;
+           position: fixed;
+           width: 100%;
+           bottom: 0;
+       }
+
+       /* Responsive Styles */
+       @media screen and (max-width: 768px) {
+           header {
+               font-size: 1.5rem;
+               padding: 15px;
+           }
+
+           .recipe-list {
+               margin: 10px;
+           }
+
+           .recipe-list li {
+               padding: 10px;
+           }
+
+           .recipe-list a {
+               font-size: 1.2rem;
+           }
+
+           .recipe-list p {
+               font-size: 0.9rem;
+           }
+       }
+
+       @media screen and (max-width: 480px) {
+           header {
+               font-size: 1.2rem;
+               padding: 10px;
+           }
+
+           .recipe-list {
+               margin: 5px;
+           }
+
+           .recipe-list li {
+               padding: 8px;
+           }
+
+           .recipe-list a {
+               font-size: 1rem;
+           }
+
+           .recipe-list p {
+               font-size: 0.8rem;
+           }
+
+           footer {
+               font-size: 0.8rem;
+           }
+       }
+    </style>
+    <header>
+        <h1>Veg Recipes List</h1>
+    </header>
+    
+    <main>
+        <section class="recipe-list">
+            <ul>
+                <li>
+                    <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2020/01/paneer-butter-masala-5-580x580.jpg" alt="Paneer Butter Masala - a creamy and rich Indian curry made with paneer">
+                    <a class="page-title" data-title="Paneer Butter Masala" href="/recipes">Paneer Butter Masala</a>
+                    <p>Everyone's favorite Paneer Butter Masala Recipe.</p>
+                </li>
+                <li>
+                    <img src="https://www.dwarakaorganic.com/wp-content/uploads/2012/06/Veg-Biryani-Recipe.jpg" alt="Vegetable Biryani - fragrant rice dish with vegetables and spices">
+                    <a class="page-title" data-title="Vegetable Biryani" href="/recipes">Vegetable Biryani</a>
+                    <p>Biryani with fragrant spices.</p>
+                </li>
+                <li>
+                    <img src="https://silkroadrecipes.com/wp-content/uploads/2022/04/Aloo-Gobi-Matar-square.jpg" alt="Aloo Gobi - spiced potatoes and cauliflower">
+                    <a class="page-title" data-title="Aloo Gobi" href="/recipes">Aloo Gobi</a>
+                    <p>Most Loved Indian Dish.</p>
+                </li>
+                <li>
+                    <img src="https://amritsr.com/wp-content/uploads/2021/12/palak-panerer.jpg" alt="Palak Paneer - spinach curry with paneer cheese">
+                    <a class="page-title" data-title="Palak Paneer" href="/recipes">Palak Paneer</a>
+                    <p>Healthy and Tasty Combo.</p>
+                </li>
+                <li>
+                    <img src="https://shivanilovesfood.com/wp-content/uploads/2023/04/Easy-Chana-Masala-9-1024x1536.jpg" alt="Chana Masala - chickpea curry with spices">
+                    <a class="page-title" data-title="Chana Masala" href="/recipes">Chana Masala</a>
+                    <p>A Dish which we can't resist.</p>
+                </li>
+            </ul>
+        </section>
+        <button id="addbtn" onclick="location.href='/addrecipes'" style="padding: 10px; font-size: 16px;">Add Recipes</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Delicious Recipes. All rights reserved.</p>
+    </footer>
+    <script>
+    // Step 2: JavaScript to handle clicks
+document.querySelectorAll('.page-title').forEach(function(anchor) {
+    anchor.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor click behavior
+        const title = this.getAttribute('data-title'); // Fetch the title
+        const targetUrl = '/recipes?title=' + encodeURIComponent(title); // Construct the target URL
+        window.location.href = targetUrl; // Redirect to the new page
+    });
+});
+</script>
+</body>
+</html>

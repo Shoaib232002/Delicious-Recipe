@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="icon" href="https://dcassetcdn.com/design_img/10150/25224/25224_294121_10150_image.jpg" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F2FFE9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin: 30px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #34495e;
+            text-align: center;
+            font-size: 1.8em;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto; /* Added margin to separate from the search bar */
+            max-width: 800px;
+        }
+
+        li {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 15px 0;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 50px; /* Increased margin-top to ensure space for sticky header */
+        }
+
+        li:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            border-color: #27ae60;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            color: #27ae60;
+            font-size: 1.6em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin: 5px 0;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        #search-container {
+            text-align: center;
+            margin: 0;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            background-color: #347928;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        #title-input {
+            padding: 10px 15px;
+            width: 60%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        #title-input:focus {
+            box-shadow: 0 0 10px rgba(0, 150, 136, 0.2);
+            border-color: #009688;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 0.9em;
+            color: #555;
+            white-space: pre-wrap;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recipes</h1>
+
+    <!-- Search Field -->
+    <div id="search-container">
+        <input type="text" id="title-input" placeholder="Search for a recipe by name..." />
+    </div>
+    
+    <!-- Display Recipes -->
+    <h2>All Recipes</h2>
+    <ul id="recipe-list">
+        <% recipes.forEach(recipe => { %>
+            <li data-name="<%= recipe.name.toLowerCase() %>">
+                <h3><%= recipe.name %></h3>
+                <pre><strong>Ingredients:</strong> <%= recipe.ingredients %></pre>
+                <pre><strong>Instructions:</strong> <%= recipe.instructions %></pre>
+            </li>
+        <% }); %>
+    </ul>
+    <script>
+            // Search and navigate to recipe
+    const searchInput = document.getElementById('title-input');
+    const recipeList = document.getElementById('recipe-list');
+
+    // Function to highlight matching recipes
+    function highlightRecipes(query) {
+        const recipes = recipeList.querySelectorAll('li');
+        let found = false; // Flag to check if any recipe is found
+
+        recipes.forEach(recipe => {
+            const recipeName = recipe.getAttribute('data-name');
+            if (recipeName.includes(query)) {
+                recipe.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                recipe.style.backgroundColor = '#dff0d8'; // Highlight found recipe
+                found = true; // Set found to true if any recipe matches
+            } else {
+                recipe.style.backgroundColor = '#fff'; // Reset background color
+            }
+        });
+
+        // If no recipe matches, you can clear the input or display a message
+        if (!found) {
+            searchInput.value = ''; // Optional: clear input if no matches found
+        }
+    }
+
+    // Event listener for input
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        highlightRecipes(query); // Call function to highlight recipes
+    });
+
+// Function to get URL parameters
+function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Set the title in the input field and highlight if there's a query
+document.addEventListener('DOMContentLoaded', function() {
+    const title = getURLParameter('title');
+    if (title) {
+        searchInput.value = title; // Set input field value
+        highlightRecipes(title.toLowerCase()); // Highlight recipes that match the title
+    }
+});
+
+
+        // Function to get URL parameters
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Set the title in the input field
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = getURLParameter('title');
+            if (title) {
+                document.getElementById('title-input').value = title; // Set input field value
+            }
+        });
+    </script>
+</body>
+</html>
